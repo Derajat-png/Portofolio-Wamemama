@@ -1,0 +1,931 @@
+.app-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1E2337;
+  height: 80px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-container {
+  width: 100%;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-brand-name {
+  color: #ffffff;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.2px;
+  user-select: none;
+}
+
+.logo-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  font-size: 17px;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1), 0 2px 8px rgba(0, 0, 0, 0.5);
+  user-select: none;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 36px;
+  align-items: center;
+}
+
+.nav-link {
+  color: #ffffff;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  opacity: 0.85;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+  opacity: 1;
+  color: #38bdf8;
+  /* Soft blue highlight for interactive feel */
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+/* Hero Section Styling */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 24px 80px;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,
+      rgba(15, 23, 42, 0.5) 0%,
+      rgba(15, 23, 42, 0.75) 50%,
+      rgba(15, 23, 42, 0.9) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-title {
+  font-size: 60px;
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  line-height: 1.15;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
+
+.hero-description {
+  font-size: 19px;
+  font-family: var(--font-inter);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 780px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.btn-mulai {
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #005a9c;
+  padding: 14px 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 90, 156, 0.4), 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-mulai:hover {
+  background-color: #006ec0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 110, 192, 0.5), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-mulai:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(0, 110, 192, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+  }
+
+  .navbar-brand-name {
+    font-size: 16px;
+  }
+
+  .navbar-container {
+    padding: 0 20px;
+  }
+
+  .logo-circle {
+    width: 44px;
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .navbar-links {
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .hero-section {
+    padding-top: 120px;
+  }
+
+  .hero-title {
+    font-size: 40px;
+    white-space: normal;
+  }
+
+  .hero-description {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .btn-mulai {
+    padding: 12px 28px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand-name {
+    display: none;
+  }
+
+  .navbar-links {
+    gap: 12px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+  }
+}
+
+/* Teachers Profile Section Styling */
+.teachers-section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 100px 24px;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.teachers-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1260px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.teachers-title {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 52px;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.teachers-subtitle {
+  font-family: var(--font-poppins);
+  font-weight: 500;
+  font-size: 22px;
+  color: #475569;
+  max-width: 800px;
+  margin: 0 auto 64px;
+  line-height: 1.5;
+}
+
+.teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  width: 100%;
+}
+
+.teacher-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: flex-end;
+  /* Menggunakan transisi khusus agar efek hover tetap cepat meskipun scroll reveal lambat */
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s ease !important;
+}
+
+.teacher-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25), 0 12px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.75) 100%);
+  z-index: 1;
+}
+
+.card-info {
+  position: relative;
+  z-index: 2;
+  padding: 28px;
+  text-align: left;
+  width: 100%;
+}
+
+.teacher-name {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 36px;
+  color: #ffffff;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.teacher-role-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.teacher-role {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.teacher-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 2px;
+}
+
+.teacher-social-link:hover {
+  transform: scale(1.2);
+}
+
+.teacher-social-icon {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+/* Star Splats (Bintang.png) */
+.star-splat {
+  position: absolute;
+  width: 280px;
+  height: auto;
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.5s ease-out;
+}
+
+.star-splat.top-right {
+  top: -80px;
+  right: -80px;
+  transform: rotate(15deg);
+}
+
+.star-splat.bottom-left {
+  bottom: -80px;
+  left: -80px;
+  transform: rotate(180deg);
+}
+
+/* Mobile styles for Teachers section */
+@media (max-width: 1024px) {
+  .teachers-grid {
+    gap: 20px;
+  }
+
+  .teacher-name {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teachers-section {
+    padding: 70px 20px;
+  }
+
+  .teachers-title {
+    font-size: 32px;
+  }
+
+  .teachers-subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .teachers-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+    gap: 28px;
+  }
+
+  .star-splat {
+    width: 180px;
+  }
+}
+
+/* Learning English Section Styling */
+.learning-section {
+  background-color: #ffffff;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 0 80px 0;
+}
+
+.learning-container {
+  background-color: #1E2337;
+  border-radius: 30px 30px 30px 30px;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  padding: 140px 60px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.learning-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 64px;
+  align-items: stretch;
+  max-width: 1650px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.learning-left {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.learning-heading {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+}
+
+.text-highlight {
+  color: #0ea5e9;
+  /* Sky blue matching the design */
+}
+
+.learning-details-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 36px 40px;
+  border-left: 8px solid #0ea5e9;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  flex-grow: 1;
+  max-width: 920px;
+}
+
+.learning-details-card p {
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: 1.65;
+  color: #334155;
+  margin: 0;
+}
+
+.learning-right {
+  display: flex;
+  justify-content: center;
+}
+
+.identity-card {
+  background-color: #ffffff;
+  border-radius: 28px;
+  padding: 48px 36px;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.identity-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.logo-placeholder {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.identity-logo {
+  width: 85%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.identity-info {
+  text-align: center;
+  width: 100%;
+}
+
+.identity-title {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 34px;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.identity-subtitle {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #0ea5e9;
+  display: block;
+}
+
+/* Learning section responsive styling */
+@media (max-width: 1024px) {
+  .learning-container {
+    padding: 60px 40px;
+  }
+
+  .learning-grid {
+    gap: 40px;
+  }
+
+  .learning-heading {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .learning-section {
+    padding: 24px 12px;
+  }
+
+  .learning-container {
+    padding: 60px 24px;
+    border-radius: 24px;
+  }
+
+  .learning-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .learning-left {
+    gap: 24px;
+  }
+
+  .learning-heading {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .learning-details-card {
+    padding: 24px;
+    border-left-width: 6px;
+  }
+
+  .learning-details-card p {
+    font-size: 15px;
+  }
+
+  .identity-card {
+    max-width: 320px;
+    aspect-ratio: auto;
+    padding: 32px 24px;
+  }
+
+  .identity-logo {
+    max-height: 140px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Under Development Page Styling */
+.dev-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 120px 24px 80px;
+  background-color: #0f172a;
+  text-align: center;
+  position: relative;
+}
+
+.dev-container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.dev-icon-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 2px solid rgba(14, 165, 233, 0.3);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.15);
+}
+
+.dev-icon {
+  font-size: 56px;
+  animation: pulse 2s infinite ease-in-out;
+  display: inline-block;
+}
+
+.dev-title {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 40px;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+}
+
+.dev-text {
+  font-family: var(--font-inter);
+  font-size: 18px;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.btn-back {
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #0ea5e9;
+  padding: 14px 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.4);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-back:hover {
+  background-color: #0284c7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+}
+
+.btn-back:active {
+  transform: translateY(0);
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Welcome Loader Styling */
+.welcome-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background-color: #1E2337;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+}
+
+.welcome-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 24px;
+  text-align: center;
+}
+
+.loader-text {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 38px;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-cursor {
+  color: #0ea5e9;
+  font-weight: 300;
+  margin-left: 4px;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    opacity: 0
+  }
+
+  50% {
+    opacity: 1
+  }
+}
+
+.loader-bar-container {
+  width: 280px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInLoader 0.5s ease-out 0.4s forwards;
+}
+
+.loader-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #0ea5e9;
+  border-radius: 2px;
+  animation: loadProgress 2.5s cubic-bezier(0.1, 0.85, 0.25, 1) forwards;
+}
+
+@keyframes fadeInUpLoader {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLoader {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loadProgress {
+  to {
+    width: 100%;
+  }
+}
+
+/* Our Teaching Team Section Styling */
+.team-section {
+  position: relative;
+  background-color: #ffffff; /* Menggunakan warna putih bersih agar menyatu dengan section di atasnya */
+  padding: 100px 24px;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.team-title-dark {
+  color: #0f172a !important;
+}
+
+.team-subtitle-dark {
+  color: #475569 !important;
+}
+
+/* Container kartu tim */
+.team-card {
+  position: relative;
+  /* Menggunakan posisi relatif agar elemen info di dalamnya bisa diposisikan absolute */
+  background-color: #004c7b;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(0, 0, 0, 0.06);
+  height: 425px; /* Tinggi total kartu */
+  width: 100%;
+  /* Menggunakan transisi khusus agar efek hover tetap cepat meskipun scroll reveal lambat */
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s ease !important;
+}
+
+.team-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25), 0 12px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Bagian Gambar (Roblox) */
+.team-card-image {
+  width: 100%;
+  height: 100%;
+  /* Menggunakan 100% agar gambar tampil penuh */
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* KOTAK BIRU HTML DI BAWAH KARTU (Bisa Anda atur tingginya secara manual di sini!) */
+.team-card-info {
+  position: absolute;
+  /* Diposisikan melayang absolute di bagian bawah kartu */
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  height: 22%;
+  /* TINGGI KOTAK BIRU (Ganti persentase ini untuk mengubah tingginya!) */
+  background-color: #004c7b;
+  /* Warna latar belakang biru kotak */
+  /* Jarak padding atas dan bawah disamakan agar teks berada pas di tengah-tengah secara vertikal */
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.team-member-name {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 30px;
+  color: #ffffff;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.5px;
+}
+
+.team-member-role {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Animasi Masuk saat Scroll (Scroll Reveal) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  /* Diubah dari 0.8s menjadi 1.2s agar transisi masuknya lebih lambat dan halus */
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay diperlambat agar kartu muncul bergantian secara lebih kontras */
+.teachers-grid .scroll-reveal:nth-child(3n+1) { transition-delay: 0.1s; }
+.teachers-grid .scroll-reveal:nth-child(3n+2) { transition-delay: 0.3s; }
+.teachers-grid .scroll-reveal:nth-child(3n+3) { transition-delay: 0.5s; }
