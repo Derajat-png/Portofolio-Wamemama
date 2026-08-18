@@ -291,7 +291,7 @@ function App() {
                   </div>
                 </div>
 
-                {/* Ms. Pasir (3) */}
+                {/* Mr. Pasir (3) */}
                 <div className="team-card scroll-reveal">
                   <div className="team-card-image" style={{ backgroundImage: `url(${pasirImg})` }}></div>
                   <div className="team-card-info">
