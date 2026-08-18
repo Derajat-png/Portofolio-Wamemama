@@ -1,0 +1,198 @@
+/* Teachers Profile Section Styling */
+.teachers-section {
+  position: relative;
+  background-color: #f8fafc;
+  padding: 100px 24px;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.teachers-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1260px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.teachers-title {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 52px;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.teachers-subtitle {
+  font-family: var(--font-poppins);
+  font-weight: 500;
+  font-size: 22px;
+  color: #475569;
+  max-width: 800px;
+  margin: 0 auto 64px;
+  line-height: 1.5;
+}
+
+.teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  width: 100%;
+}
+
+.teacher-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: flex-end;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease !important;
+}
+
+.teacher-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25), 0 12px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.75) 100%);
+  z-index: 1;
+}
+
+.card-info {
+  position: relative;
+  z-index: 2;
+  padding: 28px;
+  text-align: left;
+  width: 100%;
+}
+
+.teacher-name {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 36px;
+  color: #ffffff;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.teacher-role-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.teacher-role {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* Social link design */
+.teacher-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.teacher-social-link:hover {
+  transform: scale(1.15) rotate(10deg);
+  background: #e1306c; /* Instagram theme red-pink on hover */
+  border-color: #e1306c;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(225, 48, 108, 0.5);
+}
+
+.teacher-social-icon-svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Star Splats (Bintang.png) */
+.star-splat {
+  position: absolute;
+  width: 280px;
+  height: auto;
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.5s ease-out;
+}
+
+.star-splat.top-right {
+  top: -80px;
+  right: -80px;
+  transform: rotate(15deg);
+}
+
+.star-splat.bottom-left {
+  bottom: -80px;
+  left: -80px;
+  transform: rotate(180deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .teachers-grid {
+    gap: 20px;
+  }
+
+  .teacher-name {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teachers-section {
+    padding: 70px 20px;
+  }
+
+  .teachers-title {
+    font-size: 32px;
+  }
+
+  .teachers-subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .teachers-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+    gap: 28px;
+  }
+
+  .star-splat {
+    width: 180px;
+  }
+}
