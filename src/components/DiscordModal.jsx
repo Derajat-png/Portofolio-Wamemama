@@ -11,7 +11,7 @@ function DiscordModal({ onClose }) {
     };
     window.addEventListener('keydown', handleKeyDown);
     document.body.style.overflow = 'hidden';
-    
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
@@ -21,9 +21,9 @@ function DiscordModal({ onClose }) {
   return (
     <div className="discord-modal-overlay" onClick={onClose}>
       <div className="discord-modal-content" onClick={(e) => e.stopPropagation()}>
-        <button 
-          className="discord-modal-close" 
-          onClick={onClose} 
+        <button
+          className="discord-modal-close"
+          onClick={onClose}
           aria-label="Close modal"
           type="button"
         >
@@ -37,8 +37,8 @@ function DiscordModal({ onClose }) {
           <p className="discord-modal-subtitle">Silakan pilih salah satu server Discord di bawah ini untuk bergabung</p>
         </div>
         <div className="discord-modal-options">
-          <a 
-            href="https://discord.gg/bocahkampung" 
+          <a
+            href="https://discord.gg/bocahkampung"
             className="discord-server-card"
             target="_blank"
             rel="noopener noreferrer"
@@ -54,8 +54,8 @@ function DiscordModal({ onClose }) {
               <span className="discord-server-arrow">→</span>
             </div>
           </a>
-          <a 
-            href="https://discord.gg/wamemama" 
+          <a
+            href="https://discord.gg/wamemama"
             className="discord-server-card"
             target="_blank"
             rel="noopener noreferrer"
@@ -66,7 +66,7 @@ function DiscordModal({ onClose }) {
               </div>
               <div className="discord-server-card-info">
                 <h4 className="discord-server-name">Discord Wamemama English Class</h4>
-                <p className="discord-server-desc">Bergabung ke kelas belajar Bahasa Inggris interaktif di Roblox WEC</p>
+                <p className="discord-server-desc">Bergabung ke kelas belajar Bahasa Inggris di Roblox Wamemama English Class</p>
               </div>
               <span className="discord-server-arrow">→</span>
             </div>

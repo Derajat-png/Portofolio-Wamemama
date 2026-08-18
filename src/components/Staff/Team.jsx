@@ -9,40 +9,30 @@ import bibuImg from '../../assets/bibu.png';
 import BabyGiImg from '../../assets/BabyGi.png';
 import GulaImg from '../../assets/Gula.png';
 import sevenImg from '../../assets/seven.png';
+import taciImg from '../../assets/taci.png';
+import bintangImg from '../../assets/Bintang.png';
 import './Team.css';
 
 function Team() {
-  const instagramIconSvg = (
-    <svg 
-      viewBox="0 0 24 24" 
-      className="team-social-icon-svg"
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2.5" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-    </svg>
-  );
-
   const teamMembers = [
-    { name: 'Mr. Rex', role: 'Pembina Eskul', image: rexImg, link: 'https://www.instagram.com/' },
-    { name: 'Ms. Angsle', role: 'CareTaker', image: AngsleImg, link: 'https://www.instagram.com/' },
-    { name: 'Mr. Pasir', role: 'Pembina Eskul', image: pasirImg, link: 'https://www.instagram.com/' },
-    { name: 'Ms. Lily', role: 'Professor', image: lilyImg, link: 'https://www.instagram.com/' },
-    { name: 'Mr. Visco', role: 'CareTaker', image: viscoImg, link: 'https://www.instagram.com/' },
-    { name: 'Mr. ILLumi', role: 'CareTaker', image: lumiImg, link: 'https://www.instagram.com/' },
-    { name: 'Ms. Bibu', role: 'CareTaker', image: bibuImg, link: 'https://www.instagram.com/' },
-    { name: 'Ms. BabyGi', role: 'CareTaker', image: BabyGiImg, link: 'https://www.instagram.com/' },
-    { name: 'Ms. Gula', role: 'CareTaker', image: GulaImg, link: 'https://www.instagram.com/' },
-    { name: 'Mr. Seven', role: 'CareTaker', image: sevenImg, link: 'https://www.instagram.com/' },
+    { name: 'Mr. Rex', role: 'Pembina Eskul', image: rexImg },
+    { name: 'Ms. Taci', role: 'Pembina Eskul', image: taciImg },
+    { name: 'Mr. Pasir', role: 'Pembina Eskul', image: pasirImg },
+    { name: 'Ms. Lily', role: 'Professor', image: lilyImg },
+    { name: 'Mr. Visco', role: 'CareTaker', image: viscoImg },
+    { name: 'Mr. ILLumi', role: 'CareTaker', image: lumiImg },
+    { name: 'Ms. Bibu', role: 'CareTaker', image: bibuImg },
+    { name: 'Ms. BabyGi', role: 'CareTaker', image: BabyGiImg },
+    { name: 'Ms. Gula', role: 'CareTaker', image: GulaImg },
+    { name: 'Mr. Seven', role: 'CareTaker', image: sevenImg },
+    { name: 'Ms. Angsle', role: 'CareTaker', image: AngsleImg },
   ];
 
   return (
     <section id="team" className="team-section">
+      {/* Decorative Star Splatters */}
+      <img src={bintangImg} className="star-splat top-right" alt="" />
+      <img src={bintangImg} className="star-splat bottom-left" alt="" />
       <div className="teachers-container">
         <h2 className="teachers-title team-title-dark">Our Teaching Team</h2>
         <p className="teachers-subtitle team-subtitle-dark">
@@ -52,23 +42,14 @@ function Team() {
         <div className="teachers-grid">
           {teamMembers.map((member, index) => (
             <div className="team-card scroll-reveal" key={index}>
-              <div 
-                className="team-card-image" 
+              <div
+                className="team-card-image"
                 style={{ backgroundImage: `url("${member.image}")` }}
               ></div>
               <div className="team-card-info">
                 <h3 className="team-member-name">{member.name}</h3>
                 <div className="teacher-role-row">
                   <p className="team-member-role">{member.role}</p>
-                  <a 
-                    href={member.link} 
-                    className="teacher-social-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Instagram ${member.name}`}
-                  >
-                    {instagramIconSvg}
-                  </a>
                 </div>
               </div>
             </div>

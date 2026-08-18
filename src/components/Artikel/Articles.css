@@ -2,7 +2,7 @@
 .articles-section {
   position: relative;
   background-color: #f8fafc;
-  padding: 100px 24px 24px 24px;
+  padding: 160px 24px 24px;
   overflow: hidden;
   width: 100%;
   min-height: 100vh;
@@ -13,12 +13,39 @@
 }
 
 .articles-container {
+  position: relative;
+  z-index: 2;
   max-width: 1260px;
   width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 48px;
+}
+
+/* Decorative Sun-like Ellipse in the Top Right Corner */
+.ellipse-sun {
+  position: absolute;
+  top: -240px;
+  right: -240px;
+  width: 580px;
+  height: auto;
+  opacity: 0.95;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+
+/* Decorative Cloud in the Top Left Corner */
+.cloud-left {
+  position: absolute;
+  top: 60px;
+  left: -80px;
+  width: 380px;
+  height: auto;
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .articles-title {
@@ -323,6 +350,8 @@
 
 /* Small White Article Card */
 .article-card-white-small {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 0.55fr 1.45fr;
   gap: 0;
@@ -392,20 +421,20 @@
   .article-card-white {
     grid-template-columns: 1fr;
   }
-  
+
   .article-card-white-small {
     grid-template-columns: 1fr;
   }
-  
+
   .article-heading-featured {
     font-size: 32px;
   }
-  
+
   .article-heading-small {
     font-size: 28px;
     white-space: normal;
   }
-  
+
   .article-card-white .article-image-container,
   .article-card-white-small .article-image-container {
     aspect-ratio: 16 / 9;
@@ -413,6 +442,7 @@
 }
 
 @media (max-width: 768px) {
+
   .article-card-white .article-details,
   .article-card-white-small .article-details {
     padding: 32px 20px;
@@ -540,4 +570,54 @@
   background-color: #f8fafc;
   cursor: not-allowed;
   opacity: 0.6;
+}
+
+/* Wrapper for small cards to support background decorations (clouds, etc) */
+.article-card-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Decorative cloud sitting behind the Noun article card */
+.cloud-right-noun {
+  position: absolute;
+  top: -80px;
+  right: -250px;
+  width: 290px;
+  height: auto;
+  opacity: 0.85;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Pagination container transition animations */
+.articles-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+}
+
+.articles-page-container.transition-out {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.2s cubic-bezier(0.25, 1, 0.5, 1), transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.articles-page-container.transition-in {
+  opacity: 1;
+  transform: translateX(0);
+  animation: slideInFromRight 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

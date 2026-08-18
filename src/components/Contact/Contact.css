@@ -1,8 +1,8 @@
 /* --- Contact Section --- */
 .contact-section {
   position: relative;
-  background-color: #0f172a; /* Slate dark background */
-  padding: 100px 24px;
+  background-color: #0f172a;
+  padding: 160px 24px 100px;
   overflow: hidden;
 }
 

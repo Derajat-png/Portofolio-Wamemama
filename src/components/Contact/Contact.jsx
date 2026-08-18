@@ -87,8 +87,8 @@ function Contact({ onShowDiscordModal }) {
               <div className="contact-quick-actions">
                 <h4 className="contact-quick-title">Quick Connect</h4>
                 <div className="contact-action-buttons">
-                  <button 
-                    onClick={onShowDiscordModal} 
+                  <button
+                    onClick={onShowDiscordModal}
                     className="btn-contact-action discord"
                     title="Join Discord Server"
                     type="button"
@@ -96,8 +96,8 @@ function Contact({ onShowDiscordModal }) {
                     <img src={discordIconWhite} alt="Discord" />
                     <span>Join Discord</span>
                   </button>
-                  <a 
-                    href="https://www.instagram.com/wec.bybocahkampung/" 
+                  <a
+                    href="https://www.instagram.com/wec.bybocahkampung/"
                     className="btn-contact-action instagram"
                     title="Follow Instagram"
                     target="_blank"
@@ -106,8 +106,8 @@ function Contact({ onShowDiscordModal }) {
                     <img src={instagramIconWhite} alt="Instagram" />
                     <span>Instagram</span>
                   </a>
-                  <a 
-                    href="https://www.tiktok.com/@wec.bybocahkampung/" 
+                  <a
+                    href="https://www.tiktok.com/@wec.bybocahkampung/"
                     className="btn-contact-action tiktok"
                     title="Follow TikTok"
                     target="_blank"
@@ -116,8 +116,8 @@ function Contact({ onShowDiscordModal }) {
                     <img src={tiktokIconWhite} alt="TikTok" />
                     <span>TikTok</span>
                   </a>
-                  <a 
-                    href="https://www.roblox.com/games/120519011942267/SKOLAHAN" 
+                  <a
+                    href="https://www.roblox.com/games/120519011942267/SKOLAHAN"
                     className="btn-contact-action roblox"
                     title="Play Roblox Game"
                     target="_blank"
@@ -156,13 +156,13 @@ function Contact({ onShowDiscordModal }) {
                     <span className="error-text">{formError}</span>
                   </div>
                 )}
-                
+
                 <div className="form-group">
                   <label htmlFor="fullName" className="form-label">Nama Lengkap</label>
-                  <input 
-                    type="text" 
-                    id="fullName" 
-                    className="form-input" 
+                  <input
+                    type="text"
+                    id="fullName"
+                    className="form-input"
                     placeholder="Masukkan nama lengkap Anda"
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
@@ -172,10 +172,10 @@ function Contact({ onShowDiscordModal }) {
 
                 <div className="form-group">
                   <label htmlFor="emailAddress" className="form-label">Alamat Email</label>
-                  <input 
-                    type="email" 
-                    id="emailAddress" 
-                    className="form-input" 
+                  <input
+                    type="email"
+                    id="emailAddress"
+                    className="form-input"
                     placeholder="contoh@domain.com"
                     value={contactEmail}
                     onChange={(e) => setContactEmail(e.target.value)}
@@ -184,10 +184,10 @@ function Contact({ onShowDiscordModal }) {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="messageText" className="form-label">Pesan Anda</label>
-                  <textarea 
-                    id="messageText" 
-                    className="form-input form-textarea" 
+                  <label htmlFor="messageText" className="form-label">Kritik dan Saran</label>
+                  <textarea
+                    id="messageText"
+                    className="form-input form-textarea"
                     placeholder="Tuliskan pertanyaan atau pesan Anda di sini..."
                     rows="5"
                     value={contactMessage}
