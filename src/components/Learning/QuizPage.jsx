@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './QuizPage.css';
 
 // Import icons from assets
 import calendarIcon from '../../assets/Calendar.png';
 import clockIcon from '../../assets/Clock.png';
+import pohonMc from '../../assets/pohon mc.png';
+import bintangImg from '../../assets/Bintang.png';
+import chestMc from '../../assets/chest mc.png';
+import swordMc from '../../assets/sword mc.png';
 
 // SILAKAN IMPORT GAMBAR ANDA DI SINI SECARA MANUAL NANTI:
 // Contoh:
@@ -18,6 +22,16 @@ import game3Img from '../../assets/game 3.jpeg';
 import game4Img from '../../assets/game 4.jpeg';
 
 function QuizPage({ onBack }) {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const categories = [
+    { id: 'All', label: 'Semua', color: null },
+    { id: 'Quiz', label: 'Quiz', color: '#f59e0b' },
+    { id: 'Essai', label: 'Essai', color: '#0ea5e9' },
+    { id: 'Salah atau Benar', label: 'Salah atau Benar', color: '#ec4899' },
+    { id: 'Jawaban Singkat', label: 'Jawaban Singkat', color: '#6366f1' },
+  ];
+
   // Data game quiz edukasi berdasarkan gambar kedua
   const quizGames = [
     {
@@ -68,6 +82,21 @@ function QuizPage({ onBack }) {
 
   return (
     <section className="quiz-section">
+      {/* Dekorasi Pohon di Pojok Kiri Bawah */}
+      <img src={pohonMc} alt="Dekorasi Pohon" className="quiz-decor-pohon" />
+
+      {/* Dekorasi Bintang di Pojok Kanan Atas */}
+      <img src={bintangImg} alt="Dekorasi Bintang" className="quiz-decor-bintang" />
+
+      {/* Dekorasi Bintang di Pojok Kiri */}
+      <img src={bintangImg} alt="Dekorasi Bintang Kiri" className="quiz-decor-bintang-kiri" />
+
+      {/* Dekorasi Sword di Pojok Kanan Tengah */}
+      <img src={swordMc} alt="Dekorasi Sword" className="quiz-decor-sword" />
+
+      {/* Dekorasi Chest di Pojok Kanan Bawah */}
+      <img src={chestMc} alt="Dekorasi Chest" className="quiz-decor-chest" />
+
       <div className="quiz-container">
         {/* Tombol Kembali ke Beranda */}
         <div className="quiz-back-btn-container">
@@ -86,62 +115,89 @@ function QuizPage({ onBack }) {
           </p>
         </div>
 
-        {/* Grid Kartu Game */}
-        <div className="quiz-grid">
-          {quizGames.map((game) => (
-            <div key={game.id} className="quiz-card">
-              {/* Image Container dengan Tag Badge */}
-              <div className="quiz-card-image-wrapper">
-                {/* Tag Kategori */}
-                <span className={`quiz-card-tag ${game.categoryClass}`}>
-                  {game.category}
-                </span>
-
-                {/* Render Gambar atau Placeholder */}
-                {game.image ? (
-                  <img src={game.image} alt={game.title} className="quiz-card-image" />
-                ) : (
-                  <div
-                    className="quiz-card-image-placeholder"
-                    style={{ backgroundColor: game.imageBg }}
-                  >
-                    <div className="placeholder-text">
-                      <h3>[ {game.title} ]</h3>
-                      <p>Silakan pasang gambar Anda secara manual</p>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Konten Detail Kartu */}
-              <div className="quiz-card-details">
-                <h3 className="quiz-card-title">{game.title}</h3>
-
-                {/* Metadata Row (Tanggal & Waktu) */}
-                <div className="quiz-card-meta">
-                  <span className="quiz-meta-item">
-                    <img src={calendarIcon} className="quiz-meta-icon" alt="Calendar" />
-                    {game.date}
-                  </span>
-                  <span className="quiz-meta-item">
-                    <img src={clockIcon} className="quiz-meta-icon" alt="Clock" />
-                    {game.timeAgo}
-                  </span>
-                </div>
-
-                {/* Tombol Mainkan Sekarang */}
-                <a
-                  href={game.gameUrl}
-                  target={game.gameUrl !== '#' ? '_blank' : '_self'}
-                  rel="noopener noreferrer"
-                  className="quiz-play-btn"
-                >
-                  Mainkan Sekarang
-                </a>
-              </div>
-            </div>
+        {/* Filter Kategori */}
+        <div className="quiz-filter-container">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              className={`quiz-filter-btn ${selectedCategory === cat.id ? 'active' : ''}`}
+              onClick={() => setSelectedCategory(cat.id)}
+            >
+              {cat.color && (
+                <span 
+                  className="filter-dot" 
+                  style={{ backgroundColor: cat.color }}
+                />
+              )}
+              {cat.label}
+            </button>
           ))}
         </div>
+
+        {/* Grid Kartu Game */}
+        {quizGames.filter(game => selectedCategory === 'All' || game.category === selectedCategory).length > 0 ? (
+          <div className="quiz-grid">
+            {quizGames
+              .filter(game => selectedCategory === 'All' || game.category === selectedCategory)
+              .map((game) => (
+                <div key={game.id} className="quiz-card">
+                  {/* Image Container dengan Tag Badge */}
+                  <div className="quiz-card-image-wrapper">
+                    {/* Tag Kategori */}
+                    <span className={`quiz-card-tag ${game.categoryClass}`}>
+                      {game.category}
+                    </span>
+
+                    {/* Render Gambar atau Placeholder */}
+                    {game.image ? (
+                      <img src={game.image} alt={game.title} className="quiz-card-image" />
+                    ) : (
+                      <div
+                        className="quiz-card-image-placeholder"
+                        style={{ backgroundColor: game.imageBg }}
+                      >
+                        <div className="placeholder-text">
+                          <h3>[ {game.title} ]</h3>
+                          <p>Silakan pasang gambar Anda secara manual</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Konten Detail Kartu */}
+                  <div className="quiz-card-details">
+                    <h3 className="quiz-card-title">{game.title}</h3>
+
+                    {/* Metadata Row (Tanggal & Waktu) */}
+                    <div className="quiz-card-meta">
+                      <span className="quiz-meta-item">
+                        <img src={calendarIcon} className="quiz-meta-icon" alt="Calendar" />
+                        {game.date}
+                      </span>
+                      <span className="quiz-meta-item">
+                        <img src={clockIcon} className="quiz-meta-icon" alt="Clock" />
+                        {game.timeAgo}
+                      </span>
+                    </div>
+
+                    {/* Tombol Mainkan Sekarang */}
+                    <a
+                      href={game.gameUrl}
+                      target={game.gameUrl !== '#' ? '_blank' : '_self'}
+                      rel="noopener noreferrer"
+                      className="quiz-play-btn"
+                    >
+                      Mainkan Sekarang
+                    </a>
+                  </div>
+                </div>
+              ))}
+          </div>
+        ) : (
+          <div className="quiz-empty-state">
+            <p>Tidak ada game di kategori ini.</p>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -3,7 +3,7 @@
   position: relative;
   background-color: #f8fafc;
   padding: 48px 24px 80px;
-  overflow-x: hidden;
+  overflow: hidden;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -77,6 +77,86 @@
   margin: 0;
 }
 
+/* Filter Section */
+.quiz-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 10px 0 10px 0;
+  width: 100%;
+}
+
+.quiz-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  font-size: 14px;
+  color: #475569;
+  background-color: #ffffff;
+  border: 2px solid #e2e8f0;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.quiz-filter-btn:hover {
+  border-color: #cbd5e1;
+  color: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.quiz-filter-btn.active {
+  background-color: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.15);
+  transform: translateY(-2px);
+}
+
+.quiz-filter-btn:active {
+  transform: translateY(0);
+}
+
+/* Color dot indicator inside filters */
+.filter-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  transition: transform 0.25s ease;
+}
+
+.quiz-filter-btn.active .filter-dot {
+  transform: scale(1.35);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+}
+
+/* Empty state styling */
+.quiz-empty-state {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 1px dashed #e2e8f0;
+  text-align: center;
+}
+
+.quiz-empty-state p {
+  font-family: var(--font-inter);
+  font-size: 16px;
+  color: #64748b;
+  margin: 0;
+}
+
 /* Grid Layout */
 .quiz-grid {
   display: grid;
@@ -94,8 +174,8 @@
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .quiz-card:hover {
@@ -166,19 +246,23 @@
 }
 
 .tag-kosakata {
-  background-color: #f59e0b; /* Amber */
+  background-color: #f59e0b;
+  /* Amber */
 }
 
 .tag-tata-bahasa {
-  background-color: #0ea5e9; /* Sky blue */
+  background-color: #0ea5e9;
+  /* Sky blue */
 }
 
 .tag-mengetik-ejaan {
-  background-color: #ec4899; /* Pink */
+  background-color: #ec4899;
+  /* Pink */
 }
 
 .tag-percakapan {
-  background-color: #6366f1; /* Indigo */
+  background-color: #6366f1;
+  /* Indigo */
 }
 
 /* Card details */
@@ -251,6 +335,222 @@
   transform: translateY(1px);
 }
 
+/* Decorative Tree in the bottom left corner */
+.quiz-decor-pohon {
+  position: absolute;
+
+  /* --- SILAKAN ATUR DI SINI SECARA MANUAL (LAYAR LEBAR/DESKTOP) --- */
+  bottom: -90px;
+  /* NAIK / TURUN: Naikkan angka ini untuk ke atas, turunkan untuk ke bawah */
+  left: calc(42% - 670px);
+  /* KIRI / KANAN: Ubah '670px' (tambah angka = geser kiri, kurang angka = geser kanan) */
+  width: 390px;
+  /* BESAR / KECIL: Ubah angka ini untuk mengatur ukuran lebar pohon */
+  /* ----------------------------------------------------------------- */
+
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 1360px) {
+
+  /* Pengaturan untuk layar berukuran sedang (Laptop) */
+  .quiz-decor-pohon {
+    bottom: 50px;
+    /* NAIK / TURUN di layar sedang */
+    left: 20px;
+    /* Jarak dari kiri di layar sedang */
+    width: 110px;
+    /* Ukuran pohon di layar sedang */
+  }
+}
+
+@media (max-width: 1220px) {
+  .quiz-decor-pohon {
+    display: none;
+  }
+}
+
+/* Floating Star in the top right corner */
+@keyframes floatStar {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(8deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.quiz-decor-bintang {
+  position: absolute;
+  top: 80px;
+  right: -20px;
+  width: 200px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+  animation: floatStar 5s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 1360px) {
+  .quiz-decor-bintang {
+    right: 0;
+    width: 70px;
+    top: 60px;
+  }
+}
+
+@media (max-width: 1220px) {
+  .quiz-decor-bintang {
+    display: none;
+  }
+}
+
+/* Floating Star in the left middle/side */
+@keyframes floatStarLeft {
+  0% {
+    transform: scaleX(-1) translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: scaleX(-1) translateY(-10px) rotate(-8deg);
+  }
+
+  100% {
+    transform: scaleX(-1) translateY(0) rotate(0deg);
+  }
+}
+
+.quiz-decor-bintang-kiri {
+  position: absolute;
+
+  /* --- SILAKAN ATUR DI SINI SECARA MANUAL (LAYAR LEBAR/DESKTOP) --- */
+  top: 600px;
+  /* NAIK / TURUN: Jarak dari atas halaman */
+  left: -12px;
+  /* KIRI / KANAN: Jarak dari kiri layar */
+  width: 180px;
+  /* BESAR / KECIL: Lebar gambar bintang */
+  /* ----------------------------------------------------------------- */
+
+  transform: scaleX(-1);
+  /* FLIP: Membalik agar sisi rata menempel ke kiri layar */
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+  animation: floatStarLeft 5s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 1360px) {
+  .quiz-decor-bintang-kiri {
+    left: 0;
+    width: 90px;
+    top: 350px;
+  }
+}
+
+@media (max-width: 1220px) {
+  .quiz-decor-bintang-kiri {
+    display: none;
+  }
+}
+
+/* Decorative Chest in the bottom right corner */
+.quiz-decor-chest {
+  position: absolute;
+
+  /* --- SILAKAN ATUR DI SINI SECARA MANUAL (LAYAR LEBAR/DESKTOP) --- */
+  bottom: -49px;
+  /* NAIK / TURUN: Naikkan angka untuk ke atas, turunkan untuk ke bawah */
+  right: calc(42% - 670px);
+  /* KIRI / KANAN: Ubah '670px' (tambah angka = geser kiri, kurang angka = geser kanan) */
+  width: 200px;
+  /* BESAR / KECIL: Ubah angka ini untuk mengatur ukuran lebar gambar */
+  /* ----------------------------------------------------------------- */
+
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 1360px) {
+
+  /* Pengaturan untuk layar berukuran sedang (Laptop) */
+  .quiz-decor-chest {
+    bottom: 40px;
+    /* NAIK / TURUN di layar sedang */
+    right: 20px;
+    /* Jarak dari kanan di layar sedang */
+    width: 90px;
+    /* Ukuran chest di layar sedang */
+  }
+}
+
+@media (max-width: 1220px) {
+
+  /* Sembunyikan di layar tablet/mobile untuk mencegah tabrakan */
+  .quiz-decor-chest {
+    display: none;
+  }
+}
+
+/* Decorative Sword in the right middle/side */
+.quiz-decor-sword {
+  position: absolute;
+
+  /* --- SILAKAN ATUR DI SINI SECARA MANUAL (LAYAR LEBAR/DESKTOP) --- */
+  top: 1309px;
+  /* NAIK / TURUN: Naikkan angka untuk ke bawah (dari atas), turunkan untuk ke atas */
+  right: calc(46% - 670px);
+  /* KIRI / KANAN: Ubah '670px' (tambah angka = geser kiri, kurang angka = geser kanan) */
+  width: 200px;
+  /* BESAR / KECIL: Ubah angka ini untuk mengatur ukuran lebar gambar */
+  transform: rotate(-30deg);
+  /* ROTASI: Ubah derajat rotasi di sini (contoh: 45deg, -30deg, 180deg) */
+  /* ----------------------------------------------------------------- */
+
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 1360px) {
+
+  /* Pengaturan untuk layar berukuran sedang (Laptop) */
+  .quiz-decor-sword {
+    top: 350px;
+    /* NAIK / TURUN di layar sedang */
+    right: 20px;
+    /* Jarak dari kanan di layar sedang */
+    width: 80px;
+    /* Ukuran sword di layar sedang */
+  }
+}
+
+@media (max-width: 1220px) {
+
+  /* Sembunyikan di layar tablet/mobile untuk mencegah tabrakan */
+  .quiz-decor-sword {
+    display: none;
+  }
+}
+
 /* Responsiveness */
 @media (max-width: 868px) {
   .quiz-section {
@@ -276,5 +576,21 @@
 
   .quiz-card-title {
     font-size: 20px;
+  }
+
+  .quiz-filter-container {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .quiz-filter-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .quiz-filter-btn {
+    flex-shrink: 0;
   }
 }
