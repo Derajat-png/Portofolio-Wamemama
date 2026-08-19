@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Navbar from './components/Navbar.jsx'
+import Navbar from './components/Navbar/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import Staff from './components/Profil/Staff.jsx'
 import About from './components/About/About.jsx'
@@ -8,8 +8,9 @@ import Articles from './components/Artikel/Articles.jsx'
 import Contact from './components/Contact/Contact.jsx'
 import DiscordModal from './components/DiscordModal.jsx'
 import WelcomeLoader from './WelcomeLoader.jsx'
-import DevelopmentPage from './DevelopmentPage.jsx'
+import QuizPage from './components/Learning/QuizPage.jsx'
 import './App.css'
+
 
 function App() {
   const [view, setView] = useState('home')
@@ -82,7 +83,7 @@ function App() {
         )}
 
         {view === 'belajar' && (
-          <DevelopmentPage onBack={() => setView('home')} />
+          <QuizPage onBack={() => setView('home')} />
         )}
       </main>
 
